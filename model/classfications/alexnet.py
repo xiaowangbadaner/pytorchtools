@@ -23,9 +23,3 @@ class alexnet(nn.Module):
 
         return y
 
-import torchvision
-# net = alexnet(1000)
-# net = torchvision.models.alexnet()
-# from torchsummary import summary
-# summary(net, (3, 128, 128),device='cpu')
-# print(net)
