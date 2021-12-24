@@ -16,11 +16,3 @@ class resnet(nn.Module):
         print(conv_res.shape)
         y = self.classifier(conv_res)
         return y
-
-
-# import torchvision
-# net = resnet(Bottleneck,[3,4,6,3],1000)
-# net = torchvision.models.resnet50()
-# from torchsummary import summary
-# summary(net, (3, 128, 128),device='cpu')
-# print(net)
