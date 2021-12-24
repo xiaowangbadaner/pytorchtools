@@ -5,6 +5,7 @@ we can define base_conv_cell on there,for add attentionlayers,decide whether use
 '''
 import torch
 import torch.nn as nn
+from Activations import selectActivation
 
 class conv_cell(nn.Module):
     def __init__(
@@ -12,7 +13,7 @@ class conv_cell(nn.Module):
             in_channels,
             out_channels,
             kernel_size,
-            stride,
+            stride=1,
             padding=0,
             bias=True,
             is_BN=True,is_avtivate=True):
@@ -28,8 +29,12 @@ class conv_cell(nn.Module):
             self.BN = nn.BatchNorm2d(out_channels)    #bulidnormalization
         else:
             self.BN = None
-        if is_avtivate == True:
-            self.activation = nn.ReLU(inplace=True)               #buildactivation
+        print(is_avtivate)
+        if is_avtivate != False:
+            if is_avtivate == True:
+                self.activation = selectActivation('relu')(inplace=True)           #buildactivation
+            else:
+                self.activation = selectActivation(is_avtivate)()
         else:
             self.activation = None
 
@@ -42,4 +47,5 @@ class conv_cell(nn.Module):
 
         return y
 
-
+net = conv_cell(3,12,3,is_avtivate='sigmoid')
+print(net)

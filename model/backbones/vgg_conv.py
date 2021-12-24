@@ -9,9 +9,9 @@ from model.base_cell.ConvCell import conv_cell
 import torchvision
 
 
-class vgg(nn.Module):
+class vgg_conv(nn.Module):
     def __init__(self,arch):
-        super(vgg, self).__init__()
+        super(vgg_conv, self).__init__()
         self.conv3_64 = self.__make_layers(
             in_channels=3,out_channels=64,num=arch[0])
         self.conv64_128 = self.__make_layers(
@@ -49,16 +49,16 @@ class vgg(nn.Module):
 
 
 def VGG_11():
-    return vgg([1, 1, 2, 2, 2])
+    return vgg_conv([1, 1, 2, 2, 2])
 
 def VGG_13():
-    return vgg([1, 1, 2, 2, 2])
+    return vgg_conv([1, 1, 2, 2, 2])
 
 def VGG_16():
-    return vgg([2, 2, 3, 3, 3])
+    return vgg_conv([2, 2, 3, 3, 3])
 
 def VGG_19():
-    return vgg([2, 2, 4, 4, 4])
+    return vgg_conv([2, 2, 4, 4, 4])
 
 def VGG(layers_list):
     '''
@@ -66,7 +66,7 @@ def VGG(layers_list):
     :param layers_list: define the depth of every bolck
     :return: vggnet which can return 5 outputs
     '''
-    return vgg(layers_list)
+    return vgg_conv(layers_list)
 
 # net = VGG([1,1,2,2,2])
 # net = torchvision.models.vgg11()

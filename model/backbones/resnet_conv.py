@@ -114,13 +114,13 @@ class Bottleneck(nn.Module):
             x = self.downsample(x)
         return self.relu(y+x)
 
-class resnet(nn.Module):
+class resnet_conv(nn.Module):
     def __init__(
             self,
             block,
             num_blocks,
     ):
-        super(resnet, self).__init__()
+        super(resnet_conv, self).__init__()
         self.conv1 = conv_cell(
             in_channels=3,
             out_channels=64,
@@ -147,14 +147,9 @@ class resnet(nn.Module):
         out3 = self.conv64_128(out2)
         out4 = self.conv126_256(out3)
         out5 = self.conv256_512(out4)
-        # x = self.conv1(x)
-        # x = self.maxpool(x)
-        # x = self.conv64_64(x)
-        # x = self.conv64_128(x)
-        # x = self.conv126_256(x)
-        # out5 = self.conv256_512(x)
+
         return [out1,out1_,out2,out3,out4,out5]
-        # return out5
+
 
     def __make_layers(self,block,num_block,stride,out_channels):
         strides = [stride] + [1] * (num_block-1)
@@ -165,19 +160,19 @@ class resnet(nn.Module):
         return nn.Sequential(*layers)
 
 def ResNet18():
-    return resnet(BasicBlock, [2,2,2,2])
+    return resnet_conv(BasicBlock, [2,2,2,2])
 
 def ResNet34():
-    return resnet(BasicBlock, [3,4,6,3])
+    return resnet_conv(BasicBlock, [3,4,6,3])
 
 def ResNet50():
-    return resnet(Bottleneck, [3,4,6,3])
+    return resnet_conv(Bottleneck, [3,4,6,3])
 
 def ResNet101():
-    return resnet(Bottleneck, [3,4,23,3])
+    return resnet_conv(Bottleneck, [3,4,23,3])
 
 def ResNet152():
-    return resnet(Bottleneck, [3,8,36,3])
+    return resnet_conv(Bottleneck, [3,8,36,3])
 
 def ResNet(block,layers_list):
     '''
@@ -186,7 +181,7 @@ def ResNet(block,layers_list):
     :param layers_list: define the depth of every bolck
     :return: resnet which can return 6 outputs
     '''
-    return resnet(block,layers_list)
+    return resnet_conv(block,layers_list)
 
 
 

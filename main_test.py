@@ -1,8 +1,8 @@
-from model.backbones import resnet,vgg
+from model.backbones import resnet_conv,vgg_conv
 import torch
 import torchvision
 # net = torchvision.models.resnet50()
-net = resnet.ResNet50()
+net = resnet_conv.ResNet50()
 from torchsummary import summary
 summary(net, (3, 128, 128),device='cpu')
 
