@@ -27,11 +27,3 @@ class alexnet_for_cf(nn.Module):
         y = self.classifier(conv_res)
 
         return y
-
-# import torchvision
-# backbone = alexnet_conv
-# net = alexnet(backbone,1000)
-# net = torchvision.models.alexnet()
-# from torchsummary import summary
-# summary(net, (3, 128, 128),device='cpu')
-# print(net)

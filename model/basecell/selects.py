@@ -33,7 +33,3 @@ def selectActivation(activation_type):
     assert activation_type in supported_activations, 'unsupport activation type %s...' % activation_type
     return supported_activations[activation_type]
 
-# x = torch.ones((5,12,12,12))
-# net = selectAtten('SEblock')(12,6,'linear')
-# y = net(x)
-# print(y)

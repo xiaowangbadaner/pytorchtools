@@ -66,8 +66,3 @@ def VGG(layers_list):
     :return: vggnet which can return 5 outputs
     '''
     return vgg_conv(layers_list)
-
-# net = VGG_16()
-# from torchsummary import summary
-# summary(net, (3, 128, 128),device='cpu')
-# # print(net)

@@ -23,11 +23,3 @@ class vggnet_for_cf(nn.Module):
         conv_res = self.Adaptpool(conv_res)
         y = self.classifier(conv_res)
         return y
-
-# import torchvision
-# backbone = VGG_19()
-# net = vggnet_for_cf(backbone,1000)
-# # net = torchvision.models.VGG()
-# from torchsummary import summary
-# summary(net, (3, 128, 128),device='cpu')
-# print(net)

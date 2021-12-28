@@ -32,11 +32,5 @@ class alexnet_conv(nn.Module):
 
         return [out1,out2,out3,out4,out5]
 
-# net = torchvision.models.alexnet()
-# net = alexnet_conv()
-# net = nn.Sequential(*list(net.children())[:-2])
-# x = torch.ones((1,3,128,128))
-# y = net(x)
-# print(net)
-# from torchsummary import summary
-# summary(net, (3, 128, 128),device='cpu')
+def AlexNet():
+    return alexnet_conv()

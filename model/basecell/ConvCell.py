@@ -45,5 +45,4 @@ class conv_cell(nn.Module):
 
         return y
 
-# net = conv_cell(3,12,3,is_avtivate='relu')
-# print(net)
+

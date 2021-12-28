@@ -17,11 +17,3 @@ class resnet_for_cf(nn.Module):
         y = self.classifier(conv_res)
         return y
 
-
-# import torchvision
-# backbone = ResNet18()
-# net = resnet(backbone,1000)
-# net = torchvision.models.resnet50()
-# from torchsummary import summary
-# summary(net, (3, 128, 128),device='cpu')
-# print(net)

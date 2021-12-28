@@ -48,8 +48,3 @@ class SElayer(nn.Module):
         atten_x = self.func(atten_x).view(x.shape[0],-1,1,1)
         y = x * atten_x
         return y
-
-# x = torch.ones((5,12,12,12))
-# net = SElayer(12,6,'linear')
-# y = net(x)
-# print(y)
