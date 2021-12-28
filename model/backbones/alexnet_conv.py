@@ -3,9 +3,8 @@ bulid alexnet with no linear
 we only use the first n layers as the backbones
     by:W.H
 '''
-import torch
 import torch.nn as nn
-from model.base_cell.ConvCell import conv_cell
+from basecell.ConvCell import conv_cell
 
 class alexnet_conv(nn.Module):
     def __init__(self):
@@ -33,8 +32,6 @@ class alexnet_conv(nn.Module):
 
         return [out1,out2,out3,out4,out5]
 
-
-import torchvision
 # net = torchvision.models.alexnet()
 # net = alexnet_conv()
 # net = nn.Sequential(*list(net.children())[:-2])

@@ -5,9 +5,8 @@ for resnet18 and resnet 34,we use BasicBlock
 else, we use Bottleneck
     by:W.H
 '''
-import torch
 import torch.nn as nn
-from model.base_cell.ConvCell import conv_cell
+from basecell.ConvCell import conv_cell
 
 
 class BasicBlock(nn.Module):
@@ -120,6 +119,7 @@ class resnet_conv(nn.Module):
             block,
             num_blocks,
     ):
+        self.expansion = block.expansion
         super(resnet_conv, self).__init__()
         self.conv1 = conv_cell(
             in_channels=3,

@@ -1,19 +1,11 @@
 '''
-Function:
-    build attentionlayers
-    for A variety of attentionlayers
-Author:
-    W.H
+build channel wise attentionlayers
+
+    by: W.H
 '''
 import torch
 import torch.nn as nn
 
-def selectAtten(activation_type):
-    supported_activations = {
-
-    }
-    assert activation_type in supported_activations, 'unsupport activation type %s...' % activation_type
-    return supported_activations[activation_type]
 
 class SElayer(nn.Module):
     def __init__(self,channel,reduction=16,mode='conv'):

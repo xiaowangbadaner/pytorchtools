@@ -5,9 +5,8 @@ we only use the first n layers as the backbones
 '''
 import torch
 import torch.nn as nn
-from model.base_cell.ConvCell import conv_cell
-import torchvision
-
+from basecell.ConvCell import conv_cell
+from torch.nn import functional as F
 
 class vgg_conv(nn.Module):
     def __init__(self,arch):
@@ -68,6 +67,7 @@ def VGG(layers_list):
     '''
     return vgg_conv(layers_list)
 
-# net = VGG([1,1,2,2,2])
-# net = torchvision.models.vgg11()
-# print(net)
+# net = VGG_16()
+# from torchsummary import summary
+# summary(net, (3, 128, 128),device='cpu')
+# # print(net)
